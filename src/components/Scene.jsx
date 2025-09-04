@@ -7,6 +7,7 @@ import { Html, useTexture } from "@react-three/drei";
 import WaterPool from "./Pool/WaterPool";
 import gsap from "gsap";
 import QueryForm from "./QueryForm";
+import { useBreakpointValue } from "@/utils/useBreakpointValue";
 
 const Scene = () => {
     const cityTexture = useTexture("/textures/tile4.jpg");
@@ -168,6 +169,14 @@ const Scene = () => {
         }
     };
 
+
+    // Break points 
+
+     const textscale = useBreakpointValue({ base: [0.7, 0.7, 0.7], sm: [0.7, 0.7, 0.7], lg: [1.2, 1.2, 1.2],      });
+     const ladyscale = useBreakpointValue({ base: [0.5, 0.5, 0.5], sm: [0.5, 0.5, 0.5], lg: [0.8, 0.8, 0.8],    });  
+     const ladyposition = useBreakpointValue({ base: [0, -1.05, -0.4], sm: [0, -1.05, -0.4], lg: [0, -0.8, -0.4],    
+  });
+
     return (
         <group ref={sceneRef}>
             {/* Scene 1 bg */}
@@ -188,7 +197,7 @@ const Scene = () => {
             </mesh>
 
             {/* Text */}
-            <mesh position={[0, 1.8, 0]} scale={1.2}>
+            <mesh position={[0, 1.8, 0]} scale={textscale}>
                 <planeGeometry args={[5, 1.7]} />
                 <meshStandardMaterial
                     transparent
@@ -205,7 +214,7 @@ const Scene = () => {
                         <button
                             onClick={() => setFormOpen(true)}
                             className="bg-gradient-to-r cursor-pointer border border-white uppercase  
-                       bg-transparent text-white mb-48 tracking-[2px] py-[8px] px-[30px] 
+                       bg-transparent text-white text-sm sm:text-xl  mb-48 tracking-[2px] py-[8px] px-[30px] 
                        transition duration-300 ease-in-out transform hover:scale-105"
                         >
                             Enquire Now
@@ -215,9 +224,9 @@ const Scene = () => {
 
 
                     {/* Bottom Text */}
-                    <div className="bottom_text uppercase tracking-wider w-full text-2xl absolute bottom-5 
+                    <div className="bottom_text uppercase tracking-wider w-full sm:text-2xl absolute bottom-5 
                           flex justify-center items-start text-white">
-                        cloudside swims on the 40 <span className="text-xl pe-1">TH</span> floor
+                        cloudside swims on the 40 <span className="text-[8px] sm:text-xl pe-1">TH</span> floor
                     </div>
 
                     {/* Common Arrow Button */}
@@ -241,7 +250,8 @@ const Scene = () => {
 
             {/* Scene 1 pool scene */}
             <group ref={poolGroupRef} visible={showScene1}>
-                <mesh castShadow receiveShadow position={[0, -0.8, -0.4]} scale={0.8}>
+                {/* <mesh castShadow receiveShadow position={[0, -0.8, -0.4]} scale={ladyscale}> */}
+                <mesh castShadow receiveShadow position={ladyposition} scale={ladyscale}>
                     <planeGeometry args={[7.5, 2]} />
                     <meshStandardMaterial
                         transparent
