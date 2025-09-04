@@ -278,25 +278,46 @@ const Scene = () => {
 
             {/* Scene 2 date scene */}
             <group ref={dateGroupRef} visible={!showScene1}>
-                <mesh castShadow receiveShadow position={[0, -2.5, -4.5]} scale={2.5}>
-                    <planeGeometry args={[12.5, 5]} />
-                    <meshStandardMaterial transparent depthWrite={false} side={THREE.DoubleSide} map={useLoader(THREE.TextureLoader, "/textures/scene2bg.png")}
-                    />
-                </mesh>
+
+
+                {/* <mesh  rotation={[0, Math.PI / 9, 0]} position={[0, -1, -5]}>
+                    <planeGeometry args={[20, 3]} />
+                    <meshStandardMaterial map={railingTexture} transparent />
+                </mesh> */}
                 <mesh
                     scale={5}
                     position={[14.5, -3.2, -16.3]}
                     rotation={[0, Math.PI / 9, 0]}
+                    renderOrder={2} // Always draw after background
                 >
                     <planeGeometry args={[14, 1.5]} />
                     <meshStandardMaterial
                         map={railingTexture}
-                        transparent
-                        // depthWrite={false}
+                        transparent={true}
+                        opacity={0.8}             // Control transparency
+                        side={THREE.DoubleSide}
+                        alphaTest={0.5}           // Cutout effect, remove grayish bg
+                        depthWrite={false}        // Prevent blocking background
+                        depthTest={true}          // Allow blending properly
                     />
                 </mesh>
 
 
+                <mesh
+                    castShadow
+                    receiveShadow
+                    position={[0, -2.5, -3.5]}
+                    scale={2.5}
+                    renderOrder={99}
+                >
+                    <planeGeometry args={[12.5, 5]} />
+                    <meshStandardMaterial
+                        transparent
+                        depthWrite={false}
+                        side={THREE.DoubleSide}
+                        map={useLoader(THREE.TextureLoader, "/textures/scene2bg.png")}
+                    />
+                </mesh>
             </group>
         </group>
     );
