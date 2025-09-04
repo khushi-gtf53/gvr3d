@@ -188,7 +188,7 @@ const Scene = () => {
             </mesh>
 
             {/* Text */}
-            <mesh position={[0, 1.4, 0]} scale={1.2}>
+            <mesh position={[0, 1.8, 0]} scale={1.2}>
                 <planeGeometry args={[5, 1.7]} />
                 <meshStandardMaterial
                     transparent
@@ -205,7 +205,7 @@ const Scene = () => {
                         <button
                             onClick={() => setFormOpen(true)}
                             className="bg-gradient-to-r cursor-pointer border border-white uppercase  
-                       bg-transparent text-white mb-20 tracking-[2px] py-[8px] px-[30px] 
+                       bg-transparent text-white mb-48 tracking-[2px] py-[8px] px-[30px] 
                        transition duration-300 ease-in-out transform hover:scale-105"
                         >
                             Enquire Now
@@ -278,27 +278,21 @@ const Scene = () => {
 
             {/* Scene 2 date scene */}
             <group ref={dateGroupRef} visible={!showScene1}>
-
-
-                {/* <mesh  rotation={[0, Math.PI / 9, 0]} position={[0, -1, -5]}>
-                    <planeGeometry args={[20, 3]} />
-                    <meshStandardMaterial map={railingTexture} transparent />
-                </mesh> */}
                 <mesh
                     scale={5}
                     position={[14.5, -3.2, -16.3]}
                     rotation={[0, Math.PI / 9, 0]}
-                    renderOrder={2} // Always draw after background
+                    renderOrder={2} 
                 >
                     <planeGeometry args={[14, 1.5]} />
                     <meshStandardMaterial
                         map={railingTexture}
                         transparent={true}
-                        opacity={0.8}             // Control transparency
+                        opacity={0.8}             
                         side={THREE.DoubleSide}
-                        alphaTest={0.5}           // Cutout effect, remove grayish bg
-                        depthWrite={false}        // Prevent blocking background
-                        depthTest={true}          // Allow blending properly
+                        alphaTest={0.5}           
+                        depthWrite={false}        
+                        depthTest={true}        
                     />
                 </mesh>
 
