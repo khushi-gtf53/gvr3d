@@ -28,6 +28,7 @@ const Scene2 = ({ showScene1, setShowScene1 }) => {
 // Usage
 const isMobile = useIsMobile();
 const textPosition = isMobile ? [0, 1.3, 0] : [0, 2.1, 0];
+const secondScene = isMobile ? [10, 2] : [18, 4];
 
     const [speed, setSpeed] = useState(0.02);
     const skyRef = useRef();
@@ -234,7 +235,7 @@ const handleArrowClick = () => {
                     </div>
 
                     {/* Common Arrow Button */}
-                    <div className="group cursor-pointer absolute right-[50px] top-80" onClick={handleArrowClick}>
+                    <div className="group cursor-pointer absolute right-[20px] md:right-[50px] top-85" onClick={handleArrowClick}>
                         <div className="w-full flex justify-end">
                             <div className="w-8 sm:w-10 h-8 sm:h-10 relative right-[-10px] top-[48px] sm:top-[60px] rounded-full border border-white"></div>
                         </div>
@@ -277,7 +278,7 @@ const handleArrowClick = () => {
                 </mesh>
 
                 <mesh castShadow receiveShadow position={[0, -3.3, -5.5]} scale={2.5} renderOrder={99}>
-                    <planeGeometry args={[18, 4]} />
+                    <planeGeometry args={secondScene} />
                     <meshStandardMaterial transparent depthWrite={false} side={THREE.DoubleSide} map={useLoader(THREE.TextureLoader, "/textures/2.webp")} />
                 </mesh>
             </group>
