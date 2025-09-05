@@ -28,7 +28,7 @@ const Scene2 = ({ showScene1, setShowScene1 }) => {
 // Usage
 const isMobile = useIsMobile();
 const textPosition = isMobile ? [0, 1.3, 0] : [0, 2.1, 0];
-const secondScene = isMobile ? [10, 2] : [18, 4];
+const secondScene = isMobile ? [8, 2] : [16, 4];
 
     const [speed, setSpeed] = useState(0.02);
     const skyRef = useRef();
@@ -279,7 +279,7 @@ const handleArrowClick = () => {
 
                 <mesh castShadow receiveShadow position={[0, -3.3, -5.5]} scale={2.5} renderOrder={99}>
                     <planeGeometry args={secondScene} />
-                    <meshStandardMaterial transparent depthWrite={false} side={THREE.DoubleSide} map={useLoader(THREE.TextureLoader, "/textures/2.webp")} />
+                    <meshStandardMaterial transparent depthWrite={false} side={THREE.DoubleSide} map={useLoader(THREE.TextureLoader, "/textures/2_new.webp")} />
                 </mesh>
             </group>
         </group>
