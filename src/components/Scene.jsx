@@ -55,8 +55,8 @@ const Scene = () => {
     tileTexture.repeat.set(10, 10);
 
     const imgTexture = useTexture("/textures/panaromic.jpg");
-    const railingTexture = useTexture("/textures/railing2.png");
-    const img2Texture = useTexture("/textures/scene2env2.jpg");
+    const railingTexture = useTexture("/textures/railing3.png");
+    const img2Texture = useTexture("/textures/scene2env3.jpg");
     const glass2 = useTexture("/textures/Glass.png");
     img2Texture.wrapS = img2Texture.wrapT = THREE.RepeatWrapping;
     img2Texture.repeat.set(2, 2);
@@ -298,11 +298,13 @@ const Scene = () => {
                     <meshStandardMaterial
                         map={railingTexture}
                         transparent={true}
-                        opacity={0.8}             
+                        opacity={0.9}             
                         side={THREE.DoubleSide}
-                        alphaTest={0.5}           
+                        alphaTest={0.3}           
                         depthWrite={false}        
-                        depthTest={true}        
+                        depthTest={true}     
+                        //  blending={THREE.CustomBlending}
+
                     />
                 </mesh>
 
