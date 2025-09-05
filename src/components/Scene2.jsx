@@ -28,7 +28,7 @@ const Scene2 = ({ showScene1, setShowScene1 }) => {
 // Usage
 const isMobile = useIsMobile();
 const textPosition = isMobile ? [0, 1.3, 0] : [0, 2.1, 0];
-const secondScene = isMobile ? [7, 2] : [15.5, 4];
+const secondScene = isMobile ? [7, 2] : [15.5, 4.3];
 
     const [speed, setSpeed] = useState(0.02);
     const skyRef = useRef();

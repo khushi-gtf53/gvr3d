@@ -40,7 +40,7 @@ const QueryForm = ({ onClose }) => {
                 
                 <div className="block h-[100px]  md:h-[20vh] relative">
                     <Image
-                        src="/images/forming.jpg"
+                        src="/images/forming.webp"
                         alt="Contact form illustration"
                         fill
                         className="object-cover border-t-2 border-[#26382b]"
