@@ -294,7 +294,7 @@ const textTexture = useLoader(THREE.TextureLoader, textTexturePath);
             </group>
 
             {/* Scene 2 date scene */}
-            <group ref={dateGroupRef} visible={!showScene1} position={[0, -0.5, 0]}>
+            <group ref={dateGroupRef} visible={!showScene1} position={[0, -0.7, 0]}>
                 <mesh
                     scale={5}
                     position={[14.5, -3.2, -16.3]}
