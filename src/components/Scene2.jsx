@@ -272,7 +272,7 @@ const handleArrowClick = () => {
 
             {/* Scene 2 date scene */}
             <group ref={dateGroupRef} visible={!showScene1} position={[0, -0.7, 0]}>
-                <mesh scale={5} position={[14.5, -3.2, -16.3]} rotation={[0, Math.PI / 9, 0]} renderOrder={2} >
+                <mesh scale={5} position={[14.5, -3.8, -16.3]} rotation={[0, Math.PI / 9, 0]} renderOrder={2} >
                     <planeGeometry args={[14, 1.5]} />
                     <meshStandardMaterial map={railingTexture} transparent={true} opacity={0.9} side={THREE.DoubleSide} alphaTest={0.3} depthWrite={false} depthTest={true} />
                 </mesh>
