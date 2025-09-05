@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { Html, useTexture } from "@react-three/drei";
 import WaterPool from "./Pool/WaterPool";
 import gsap from "gsap";
-import QueryForm from "./QueryForm";
+import QueryForm2 from "./QueryForm2";
 import { useBreakpointValue } from "@/utils/useBreakpointValue";
 
 const Scene = () => {
@@ -244,7 +244,7 @@ const Scene = () => {
                         />
                     </div>
 
-                    {formOpen && <QueryForm onClose={() => setFormOpen(false)} />}
+                    {formOpen && <QueryForm2 onClose={() => setFormOpen(false)} />}
                 </div>
             </Html>
 
@@ -310,16 +310,16 @@ const Scene = () => {
                 <mesh
                     castShadow
                     receiveShadow
-                    position={[0, -2.5, -3.5]}
+                    position={[0, -0.3, -3.5]}
                     scale={2.5}
                     renderOrder={99}
                 >
-                    <planeGeometry args={[12.5, 5]} />
+                    <planeGeometry args={[12.5, 6]} />
                     <meshStandardMaterial
                         transparent
                         depthWrite={false}
                         side={THREE.DoubleSide}
-                        map={useLoader(THREE.TextureLoader, "/textures/scene2bg.png")}
+                        map={useLoader(THREE.TextureLoader, "/textures/2.png")}
                     />
                 </mesh>
             </group>
