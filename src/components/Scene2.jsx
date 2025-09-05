@@ -82,7 +82,7 @@ const secondScene = isMobile ? [8, 2] : [16, 4];
 const handleArrowClick = () => {
   if (showScene1) {
     // Scene 1 → Scene 2
-    setSpeed(1);
+    setSpeed(0.5);
 
     gsap.to(skyRef.current.scale, {
       duration: 1,
@@ -132,7 +132,7 @@ const handleArrowClick = () => {
     });
   } else {
     // Scene 2 → Scene 1
-    setSpeed(1);
+    setSpeed(0.5);
 
     gsap.to(scene2BgRef.current.scale, {
       duration: 1,
@@ -228,7 +228,7 @@ const handleArrowClick = () => {
                     </div>
 
                     {/* call sec  */}
-                    <div className="absolute right-10 bottom-7 sm:bottom-5 w-full text-white flex justify-end items-center gap-4 sm:gap-6">
+                    <div className="absolute right-0 md:right-10 bottom-7 sm:bottom-5 w-full text-white flex justify-center md:justify-end items-center gap-4 sm:gap-6">
                         <div className="call text-white cursor-pointer bg-transparent border-white border w-10 h-10 rounded-full flex justify-center items-center p-1">
                             <IoCall size={20} />
                         </div>

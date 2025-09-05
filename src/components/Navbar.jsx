@@ -9,9 +9,9 @@ const Navbar = ({ showScene1 }) => {
         </div>
 
         <div className="rera_sec">
-          <div className="flex  items-end md:items-start gap-2">
+          <div className="flex  items-top md:items-start gap-2">
             <div
-              className={`rera_details text-[6px] md:text-[7px] font-[100]  ${
+              className={`rera_details text-[4px] md:text-[7px] font-[100]  ${
                 showScene1 ? "text-black" : "text-white"
               } flex flex-col sm:items-end tracking-wider roboto_font transition-colors duration-500`}
             >
@@ -21,8 +21,8 @@ const Navbar = ({ showScene1 }) => {
               <p className="text-end  md:text-start">BANK & BRANCH ADDRESS: PNB, SECTOR 104, NOIDA, UP</p>
               <p className="text-end  md:text-start">LAUNCH DATE OF PROJECT: 11-06-2025</p>
             </div>
-            <div className="qr ">
-              <img src="/images/qrcode.png" alt="qr" className="w-14 h-14" />
+            <div className="qr block">
+              <img src="/images/qrcode.png" alt="qr" className="w-14 h-auto md:h-14" />
             </div>
           </div>
         </div>
