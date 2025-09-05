@@ -63,7 +63,7 @@ const QueryForm = ({ onClose }) => {
 
                     {/* Heading */}
                     <h2 className="text-lg sm:text-xl text-center font-semibold mb-3 md:mb-6 text-gray-700 uppercase tracking-wide">
-                        Have questions? Ask away!
+                        Reverse the last luxury land parcel of Sector 107
                     </h2>
 
                     {/* Form */}

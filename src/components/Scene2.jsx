@@ -28,7 +28,7 @@ const Scene2 = ({ showScene1, setShowScene1 }) => {
 // Usage
 const isMobile = useIsMobile();
 const textPosition = isMobile ? [0, 1.3, 0] : [0, 2.1, 0];
-const secondScene = isMobile ? [7, 2] : [15.5, 4.3];
+const secondScene = isMobile ? [7, 2] : [12.5, 4];
 
     const [speed, setSpeed] = useState(0.02);
     const skyRef = useRef();
@@ -272,8 +272,8 @@ const handleArrowClick = () => {
 
             {/* Scene 2 date scene */}
             <group ref={dateGroupRef} visible={!showScene1} position={[0, -0.7, 0]}>
-                <mesh scale={5} position={[14.5, -3.2, -16.3]} rotation={[0, Math.PI / 12, 0]} renderOrder={2} >
-                    <planeGeometry args={[20, 1.5]} />
+                <mesh scale={5} position={[14.5, -3.2, -16.3]} rotation={[0, Math.PI / 9, 0]} renderOrder={2} >
+                    <planeGeometry args={[14, 1.5]} />
                     <meshStandardMaterial map={railingTexture} transparent={true} opacity={0.9} side={THREE.DoubleSide} alphaTest={0.3} depthWrite={false} depthTest={true} />
                 </mesh>
 
