@@ -9,11 +9,11 @@ const Navbar = ({ showScene1 }) => {
         </div>
 
         <div className="rera_sec">
-          <div className="flex gap-2">
+          <div className="sm:flex gap-2">
             <div
               className={`rera_details text-[7px] font-[100] ${
                 showScene1 ? "text-black" : "text-white"
-              } flex flex-col items-end tracking-wider roboto_font transition-colors duration-500`}
+              } flex flex-col sm:items-end tracking-wider roboto_font transition-colors duration-500`}
             >
               <p>RERA NUMBER: UPRERAPRJ510056/09/2025</p>
               <p>HTTPS://WWW.UP-RERA.IN</p>

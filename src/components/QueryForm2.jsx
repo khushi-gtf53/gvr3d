@@ -50,7 +50,7 @@ const QueryForm = ({ onClose }) => {
                 </div>
 
                 {/* Right side form */}
-                <div className="relative bg-white h-[48vh] p-5 sm:p-10 ">
+                <div className="relative bg-white h-auto p-5 sm:p-10 ">
                    
 
                     {/* Heading */}
