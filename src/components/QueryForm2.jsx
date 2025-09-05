@@ -26,7 +26,7 @@ const QueryForm = ({ onClose }) => {
             role="dialog"
             aria-modal="true"
         >
-            <div className="w-full max-w-[80%] sm:max-w-[40%] flex flex-col mx-auto relative bg-white">
+            <div className="w-full max-w-[90%] md:max-w-[40%] flex flex-col mx-auto relative bg-white">
                 {/* Left side image (desktop only) */}
                 <div className="top relative">
                      {/* Close Button */}
@@ -38,7 +38,7 @@ const QueryForm = ({ onClose }) => {
                         ✕
                     </button>
                 
-                <div className="hidden sm:block  h-[20vh] relative">
+                <div className="block h-[100px]  md:h-[20vh] relative">
                     <Image
                         src="/images/forming.jpg"
                         alt="Contact form illustration"
@@ -51,7 +51,7 @@ const QueryForm = ({ onClose }) => {
 
                 {/* Right side form */}
                 <div className="relative bg-white h-auto p-5 sm:p-10 ">
-                    <div className="relative w-full">
+                    {/* <div className="relative w-full">
                     <button
                         onClick={onClose}
                         aria-label="Close form"
@@ -59,81 +59,96 @@ const QueryForm = ({ onClose }) => {
                     >
                         ✕
                     </button>
-                    </div>
+                    </div> */}
 
                     {/* Heading */}
-                    <h2 className="text-lg sm:text-xl text-center font-semibold mb-6 text-gray-700 uppercase tracking-wide">
+                    <h2 className="text-lg sm:text-xl text-center font-semibold mb-3 md:mb-6 text-gray-700 uppercase tracking-wide">
                         Have questions? Ask away!
                     </h2>
 
                     {/* Form */}
-                    <form className="space-y-3 tracking-wider roboto_font ">
-                        {/* Mapped input fields */}
-                        <div className="grid grid-cols-2 gap-5">
-                        {formFields.map((field) => (
-                            <div key={field.name}>
-                                {field.type === "textarea" ? (
-                                    <textarea
-                                        rows={1}
-                                        required
-                                        placeholder={field.placeholder}
-                                        className={inputClasses}
-                                    />
-                                ) : (
-                                    <input
-                                        type={field.type}
-                                        required
-                                        placeholder={field.placeholder}
-                                        className={inputClasses}
-                                    />
-                                )}
-                            </div>
-                        ))}
-                        </div>
+                  <form className="space-y-3 tracking-wider roboto_font ">
+  <div className="grid grid-cols-12 gap-2 md:gap-5">
+    {/* Name, Email, Phone fields */}
+    {formFields
+      .filter((field) => field.name !== "message")
+      .map((field) => (
+        <div key={field.name} className="col-span-12 md:col-span-6">
+          {field.type === "textarea" ? (
+            <textarea
+              required
+              placeholder={field.placeholder}
+              className={inputClasses}
+            />
+          ) : (
+            <input
+              type={field.type}
+              required
+              placeholder={field.placeholder}
+              className={inputClasses}
+            />
+          )}
+        </div>
+      ))}
 
-                        {/* Custom Select Dropdown */}
-                        <div className="relative">
-                            <button
-                                type="button"
-                                onClick={() => setOpen(!open)}
-                                className={`${inputClasses} text-left bg-transparent ${isPlaceholder ? "text-gray-400" : "text-gray-400"
-                                    }`}
-                            >
-                                {selected}
-                            </button>
+    {/* Qualification dropdown */}
+    <div className="relative col-span-12 md:col-span-6">
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        className={`${inputClasses} text-left bg-transparent ${
+          isPlaceholder ? "text-gray-400" : "text-gray-400"
+        }`}
+      >
+        {selected}
+      </button>
 
-                            {open && (
-                                <ul className="absolute left-0 right-0 mt-1 border border-gray-300 bg-white shadow-md rounded-md z-10">
-                                    {selectOptions.map((option) => (
-                                        <li
-                                            key={option}
-                                            onClick={() => {
-                                                setSelected(option);
-                                                setOpen(false);
-                                            }}
-                                            className={`px-3 py-2 cursor-pointer hover:bg-gray-100 ${option === selected ? "text-gray-400 font-medium" : "text-gray-400"
-                                                }`}
-                                        >
-                                            {option}
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
-                        </div>
+      {open && (
+        <ul className="absolute left-0 right-0 mt-1 border border-gray-300 bg-white shadow-md rounded-md z-10">
+          {selectOptions.map((option) => (
+            <li
+              key={option}
+              onClick={() => {
+                setSelected(option);
+                setOpen(false);
+              }}
+              className={`px-3 py-2 cursor-pointer hover:bg-gray-100 ${
+                option === selected
+                  ? "text-gray-400 font-medium"
+                  : "text-gray-400"
+              }`}
+            >
+              {option}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
 
+    {/* Message field last */}
+    <div className="col-span-12 md:col-span-6">
+      <textarea
+        rows={1}
+        required
+        placeholder="Message"
+        className={inputClasses}
+      />
+    </div>
+  </div>
 
-                        {/* Submit */}
-                        <div className="w-full flex justify-center items-center">
-                        <button
-                            type="submit"
-                            className="bg-transparent border border-black uppercase 
-                         text-black tracking-[2px] py-1 px-12 mt-5 sm:mt-6
-                         transition duration-300 ease-in-out transform hover:scale-105"
-                        >
-                            Submit
-                        </button>
-                        </div>
-                    </form>
+  {/* Submit button */}
+  <div className="w-full flex justify-center items-center">
+    <button
+      type="submit"
+      className="bg-transparent border border-black uppercase 
+                 text-black tracking-[2px] py-1 px-12 mt-5 sm:mt-6
+                 transition duration-300 ease-in-out transform hover:scale-105"
+    >
+      Submit
+    </button>
+  </div>
+</form>
+
                 </div>
             </div>
         </div>
