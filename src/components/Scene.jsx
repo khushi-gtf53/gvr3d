@@ -314,7 +314,7 @@ const Scene = () => {
                     scale={2.5}
                     renderOrder={99}
                 >
-                    <planeGeometry args={[12.5, 4]} />
+                    <planeGeometry args={[12.5, 5]} />
                     <meshStandardMaterial
                         transparent
                         depthWrite={false}
