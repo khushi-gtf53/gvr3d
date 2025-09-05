@@ -1,18 +1,24 @@
-  import SmoothScroll from "@/utils/SmoothScroll";
-  import "./globals.css";
+import SmoothScroll from "@/utils/SmoothScroll";
+import "./globals.css";
 
-  export const metadata = {
-    title: "GVR Landing Page",
-    description: "Next.js + React Three Fiber Landing Page",
-  };
-
-  export default function RootLayout({ children }) {
-    return (
-      <html lang="en">
-        <body className="bg-black text-white">
-          <SmoothScroll/>
-          {children}
-        </body>
-      </html>
-    );
+export const metadata = {
+  title: "GVR Landing Page",
+  description: "Next.js + React Three Fiber Landing Page",
+  icons : {
+    icon: "/favicon.png",
   }
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />       
+      </head>
+      <body className="bg-black text-white">
+        <SmoothScroll />
+        {children}
+      </body>
+    </html>
+  );
+}
