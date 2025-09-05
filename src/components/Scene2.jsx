@@ -224,7 +224,7 @@ const handleArrowClick = () => {
                     </div>
 
                     {/* Bottom Text */}
-                    <div className="text-[16px] md:text-[20px] px-[15px] md:px-[0] bottom_text uppercase tracking-wider w-full sm:text-xl absolute bottom-20 sm:bottom-10 flex justify-center items-center text-center text-white"> Reserve the last luxury land parcel of Sector 107
+                    <div className="text-[16px] md:text-[20px] px-[15px] md:px-[0] bottom_text uppercase tracking-wider w-full sm:text-xl absolute bottom-20 sm:bottom-10 flex justify-center items-center text-center text-white"> Cloudside swims on the 40th floor
                     </div>
 
                     {/* call sec  */}
