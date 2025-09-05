@@ -8,6 +8,7 @@ import WaterPool from "./Pool/WaterPool";
 import gsap from "gsap";
 import QueryForm from "./QueryForm";
 import { useBreakpointValue } from "@/utils/useBreakpointValue";
+import { IoCall } from "react-icons/io5";
 
 const Scene = () => {
     const cityTexture = useTexture("/textures/tile4.jpg");
@@ -198,11 +199,11 @@ const Scene = () => {
 
             {/* Text */}
             <mesh position={[0, 1.8, 0]} scale={textscale}>
-                <planeGeometry args={[5, 1.7]} />
+                <planeGeometry args={[5, 1.5]} />
                 <meshStandardMaterial
                     transparent
                     depthWrite={false}
-                    map={useLoader(THREE.TextureLoader, "/textures/text.png")}
+                    map={useLoader(THREE.TextureLoader, "/textures/text-white.png")}
                 />
             </mesh>
 
@@ -228,6 +229,15 @@ const Scene = () => {
                           flex justify-center items-start text-white">
                         Reserve the last luxury land parcel of Sector 107
                     </div>
+
+                    {/* call sec  */}
+                    <div className="absolute right-10 bottom-20 sm:bottom-5 w-full
+                           text-white flex justify-end items-center gap-4 sm:gap-6">
+                                            <div className="call text-white cursor-pointer bg-transparent border-white border w-10 h-10 rounded-full flex justify-center items-center p-1">
+                                                <IoCall size={20} />
+                                            </div>
+                                            
+                                        </div>
 
                     {/* Common Arrow Button */}
                     <div

@@ -12,13 +12,18 @@ const Navbar = ({ scene }) => {
                         <img src="/images/logo.webp" alt="" className='w-[60%] sm:w-[80%]' />
                     </div>
 
-                    <div className="right_sec flex justify-between items-center gap-4 sm:gap-6">
-                        <div className="call text-white cursor-pointer bg-transparent border-white border w-10 h-10 rounded-full flex justify-center items-center p-1">
-                            <IoCall size={20} />
-                        </div>
-                        <div className="hamburger space-y-2 cursor-pointer">
-                            <div className="w-10 h-[2px]  bg-white" />
-                            <div className="w-8 h-[2px] bg-white" />
+                    <div className="rera_sec">
+                        <div className="flex gap-2 ">
+                            <div className="rera_details text-[9px] font-[100] text-white flex flex-col items-end tracking-wider roboto_font">
+                                <p>RERA NUMBER: UPRERAPRJ510056/09/2025</p>
+                                <p>HTTPS://WWW.UP-RERA.IN</p>
+                                <p>ACCOUNT NUMBER: 7865002900000018 | IFSC: PUNB0786500</p>
+                                <p>BANK & BRANCH ADDRESS: PNB, SECTOR 104, NOIDA, UP</p>
+                                <p>LAUNCH DATE OF PROJECT: 11-06-2025</p>
+                            </div>
+                            <div className="qr">
+                                <img src="/images/qrcode.png" alt="qr" className='w-16 h-16' />
+                            </div>
                         </div>
                     </div>
                 </div>
