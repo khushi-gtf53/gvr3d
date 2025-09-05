@@ -62,69 +62,106 @@ const Scene2 = ({ showScene1, setShowScene1 }) => {
     marbleTexture.wrapS = marbleTexture.wrapT = THREE.RepeatWrapping;
     marbleTexture.repeat.set(10, 10);
 
-    const handleArrowClick = () => {
-        if (showScene1) {
-            setSpeed(4);
-            gsap.to(skyRef.current.scale, {
-                duration: 1,
-                x: skyRef.current.scale.x + 0.2,
-                y: skyRef.current.scale.y + 0.2,
-                z: skyRef.current.scale.z + 0.2,
-                delay: 1,
-                ease: "power3.inOut",
-            });
+const handleArrowClick = () => {
+  if (showScene1) {
+    // Scene 1 → Scene 2
+    setSpeed(1);
 
-            gsap.to(skyRef.current.material, {
-                duration: 1,
-                opacity: 1,
-                delay: 1,
-                ease: "power3.inOut",
-                onComplete: () => {
-                    skyRef.current.visible = false;
-                    scene2BgRef.current.visible = true;
-                    gsap.fromTo(
-                        scene2BgRef.current.material,
-                        { opacity: 0.5 },
-                        { duration: 1.5, opacity: 1, ease: "power3.inOut" }
-                    );
+    gsap.to(skyRef.current.scale, {
+      duration: 1,
+      x: skyRef.current.scale.x + 0.2,
+      y: skyRef.current.scale.y + 0.2,
+      z: skyRef.current.scale.z + 0.2,
+      delay: 1,
+      ease: "power3.inOut",
+    });
 
-                    setSpeed(0.02);
-                    setShowScene1(false);
-                },
-            });
-        } else {
-            setSpeed(4);
+    gsap.to(skyRef.current.material, {
+      duration: 1,
+      opacity: 1,
+    //   delay: 1,
+      ease: "power3.inOut",
+      onComplete: () => {
+        skyRef.current.visible = false;
+        scene2BgRef.current.visible = true;
 
-            gsap.to(scene2BgRef.current.scale, {
-                duration: 1,
-                x: scene2BgRef.current.scale.x + 0.2,
-                y: scene2BgRef.current.scale.y + 0.2,
-                z: scene2BgRef.current.scale.z + 0.2,
-                delay: 1,
-                ease: "power3.inOut",
-            });
+        // Fade in next BG
+        gsap.fromTo(
+          scene2BgRef.current.material,
+          { opacity: 0.5 },
+          { duration: 1.5, opacity: 1, ease: "power3.inOut" }
+        );
 
-            gsap.to(scene2BgRef.current.material, {
-                duration: 1,
-                opacity: 1,
-                delay: 1,
-                ease: "power3.inOut",
-                onComplete: () => {
-                    scene2BgRef.current.visible = false;
+        // Animate Date Group (Scene 2 content)
+        if (dateGroupRef.current) {
+          dateGroupRef.current.visible = true;
 
-                    skyRef.current.visible = true;
-                    gsap.fromTo(
-                        skyRef.current.material,
-                        { opacity: 0.5 },
-                        { duration: 1.5, opacity: 1, ease: "power3.inOut" }
-                    );
-
-                    setSpeed(0.02);
-                    setShowScene1(true);
-                },
-            });
+          // start slightly bigger + hidden
+          gsap.fromTo(
+            dateGroupRef.current.scale,
+            { x: dateGroupRef.current.scale.x + 0.2, y: dateGroupRef.current.scale.y + 0.2, z: dateGroupRef.current.scale.z + 0.2 },
+            { x: 1, y: 1, z: 1, duration: 1.2, ease: "power3.out" }
+          );
+          gsap.fromTo(
+            dateGroupRef.current,
+            { opacity: 0.5 },
+            { opacity: 1, duration: 1.2, ease: "power3.out" }
+          );
         }
-    };
+
+        setSpeed(0.02);
+        setShowScene1(false);
+      },
+    });
+  } else {
+    // Scene 2 → Scene 1
+    setSpeed(1);
+
+    gsap.to(scene2BgRef.current.scale, {
+      duration: 1,
+      x: scene2BgRef.current.scale.x + 0.2,
+      y: scene2BgRef.current.scale.y + 0.2,
+      z: scene2BgRef.current.scale.z + 0.2,
+      delay: 1,
+      ease: "power3.inOut",
+    });
+
+    gsap.to(scene2BgRef.current.material, {
+      duration: 1,
+      opacity: 1,
+    //   delay: 1,
+      ease: "power3.inOut",
+      onComplete: () => {
+        scene2BgRef.current.visible = false;
+        skyRef.current.visible = true;
+
+        gsap.fromTo(
+          skyRef.current.material,
+          { opacity: 0.5 },
+          { duration: 1.5, opacity: 1, ease: "power3.inOut" }
+        );
+
+        if (poolGroupRef.current) {
+          poolGroupRef.current.visible = true;
+
+          gsap.fromTo(
+            poolGroupRef.current.scale,
+            { x: poolGroupRef.current.scale.x + 0.2, y: poolGroupRef.current.scale.y + 0.2, z: poolGroupRef.current.scale.z + 0.2 },
+            { x: 1, y: 1, z: 1, duration: 1.2, ease: "power3.out" }
+          );
+          gsap.fromTo(
+            poolGroupRef.current,
+            { opacity: 0.5 },
+            { opacity: 1, duration: 1.2, ease: "power3.out" }
+          );
+        }
+
+        setSpeed(0.02);
+        setShowScene1(true);
+      },
+    });
+  }
+};
 
     // Break points 
 
@@ -156,7 +193,7 @@ const Scene2 = ({ showScene1, setShowScene1 }) => {
             </mesh>
 
             {/* Text */}
-            <mesh position={[0, 1.9, 0]} scale={textscale}>
+            <mesh position={[0, 2.1, 0]} scale={textscale}>
                 <planeGeometry args={[5, 1.5]} />
                 <meshStandardMaterial transparent depthWrite={false} map={textTexture} />
             </mesh>
@@ -165,7 +202,7 @@ const Scene2 = ({ showScene1, setShowScene1 }) => {
                 <div className="w-full h-full relative z-[99999] pointer-events-auto">
                     {/* CTA Button */}
                     <div className="cta_btn flex justify-center items-center h-full">
-                        <button onClick={() => setFormOpen(true)} className="bg-gradient-to-r cursor-pointer border border-white uppercase bg-transparent text-white text-sm sm:text-lg  mb-48 tracking-[2px] py-[8px] px-[30px] transition duration-300 ease-in-out transform hover:scale-105"
+                        <button onClick={() => setFormOpen(true)} className={`bg-gradient-to-r cursor-pointer border ${showScene1 ? "border-black text-black" : "border-white text-white"}  uppercase bg-transparent  text-sm sm:text-lg  mb-48 tracking-[2px] py-[8px] px-[30px] transition duration-300 ease-in-out transform hover:scale-105`}
                         > Enquire Now</button>
                     </div>
 

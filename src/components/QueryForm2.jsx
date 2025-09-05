@@ -43,7 +43,7 @@ const QueryForm = ({ onClose }) => {
                         src="/images/forming.jpg"
                         alt="Contact form illustration"
                         fill
-                        className="object-cover"
+                        className="object-cover border-t-2 border-[#26382b]"
                         priority
                     />
                 </div>
