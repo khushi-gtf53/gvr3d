@@ -51,7 +51,15 @@ const QueryForm = ({ onClose }) => {
 
                 {/* Right side form */}
                 <div className="relative bg-white h-auto p-5 sm:p-10 ">
-                   
+                    <div className="relative w-full">
+                    <button
+                        onClick={onClose}
+                        aria-label="Close form"
+                        className="relative top-1  block sm:hidden right-[4px] z-20 w-8 h-8 rounded-full border border-black text-black text-xl cursor-pointer"
+                    >
+                        ✕
+                    </button>
+                    </div>
 
                     {/* Heading */}
                     <h2 className="text-lg sm:text-xl text-center font-semibold mb-6 text-gray-700 uppercase tracking-wide">
