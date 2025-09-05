@@ -181,7 +181,7 @@ const Scene = () => {
         <group ref={sceneRef}>
             {/* Scene 1 bg */}
             <mesh ref={skyRef} position={[3, 200, -5]} scale={100} visible={showScene1}>
-                <cylinderGeometry args={[10, 8, 30, 64]} />
+                <cylinderGeometry args={[8, 8, 30, 64]} />
                 <meshBasicMaterial map={imgTexture} side={THREE.BackSide} transparent />
             </mesh>
 
@@ -224,7 +224,7 @@ const Scene = () => {
 
 
                     {/* Bottom Text */}
-                    <div className="bottom_text uppercase tracking-wider w-full sm:text-2xl absolute bottom-5 
+                    <div className="bottom_text uppercase tracking-wider w-full sm:text-2xl absolute bottom-20 sm:bottom-5 
                           flex justify-center items-start text-white">
                         cloudside swims on the 40 <span className="text-[8px] sm:text-xl pe-1">TH</span> floor
                     </div>
@@ -235,12 +235,12 @@ const Scene = () => {
                         onClick={handleArrowClick}
                     >
                         <div className="w-full flex justify-end">
-                            <div className="w-10 h-10 relative right-[-10px] top-[60px] rounded-full border border-white"></div>
+                            <div className="w-8 sm:w-10 h-8 sm:h-10 relative right-[-10px] top-[48px] sm:top-[60px] rounded-full border border-white"></div>
                         </div>
                         <img
                             src="/images/arrows.png"
                             alt="arrow"
-                            className="w-20 transition-transform duration-300 ease-in-out group-hover:translate-x-[22px]"
+                            className="w-16 sm:w-20 transition-transform duration-300 ease-in-out group-hover:translate-x-[22px]"
                         />
                     </div>
 

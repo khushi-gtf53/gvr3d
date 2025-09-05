@@ -18,7 +18,7 @@ export function useBreakpointValue(values) {
     updateValue();
     window.addEventListener("resize", updateValue);
     return () => window.removeEventListener("resize", updateValue);
-  }, [values]);
+  }, []); 
 
   return value;
 }
