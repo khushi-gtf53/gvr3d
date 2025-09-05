@@ -10,8 +10,8 @@ import { useBreakpointValue } from "@/utils/useBreakpointValue";
 import { IoCall } from "react-icons/io5";
 
 const Scene = ({ showScene1, setShowScene1 }) => {
-    const cityTexture = useTexture("/textures/tile4.jpg");
-    cityTexture.colorSpace = THREE.SRGBColorSpace;
+    // const cityTexture = useTexture("/textures/tile4.jpg");
+    // cityTexture.colorSpace = THREE.SRGBColorSpace;
 
     const [speed, setSpeed] = useState(0.02);
     const skyRef = useRef();

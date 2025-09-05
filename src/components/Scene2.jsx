@@ -1,5 +1,5 @@
 "use client";
-import { useLoader, useFrame } from "@react-three/fiber";
+import { useLoader, useFrame ,useThree} from "@react-three/fiber";
 import * as THREE from "three";
 import { useEffect, useRef, useState } from "react";
 import { Html, useTexture } from "@react-three/drei";
@@ -10,8 +10,24 @@ import { useBreakpointValue } from "@/utils/useBreakpointValue";
 import { IoCall } from "react-icons/io5";
 
 const Scene2 = ({ showScene1, setShowScene1 }) => {
-    const cityTexture = useTexture("/textures/tile4.jpg");
-    cityTexture.colorSpace = THREE.SRGBColorSpace;
+    // const cityTexture = useTexture("/textures/tile4.jpg");
+    // cityTexture.colorSpace = THREE.SRGBColorSpace;
+    function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
+  return isMobile;
+}
+
+// Usage
+const isMobile = useIsMobile();
+const textPosition = isMobile ? [0, 1.3, 0] : [0, 2.1, 0];
 
     const [speed, setSpeed] = useState(0.02);
     const skyRef = useRef();
@@ -53,9 +69,9 @@ const Scene2 = ({ showScene1, setShowScene1 }) => {
     tileTexture.wrapS = tileTexture.wrapT = THREE.RepeatWrapping;
     tileTexture.repeat.set(10, 10);
 
-    const imgTexture = useTexture("/textures/panaromic.jpg");
+    const imgTexture = useTexture("/textures/panaromic.webp");
     const railingTexture = useTexture("/textures/railing3.png");
-    const img2Texture = useTexture("/textures/scene2env3.jpg");
+    const img2Texture = useTexture("/textures/scene2env3.webp");
     img2Texture.wrapS = img2Texture.wrapT = THREE.RepeatWrapping;
     img2Texture.repeat.set(2, 2);
     const marbleTexture = useTexture("/textures/marble2.jpg");
@@ -193,7 +209,7 @@ const handleArrowClick = () => {
             </mesh>
 
             {/* Text */}
-            <mesh position={[0, 2.1, 0]} scale={textscale}>
+            <mesh position={textPosition} scale={textscale}>
                 <planeGeometry args={[5, 1.5]} />
                 <meshStandardMaterial transparent depthWrite={false} map={textTexture} />
             </mesh>
@@ -202,16 +218,16 @@ const handleArrowClick = () => {
                 <div className="w-full h-full relative z-[99999] pointer-events-auto">
                     {/* CTA Button */}
                     <div className="cta_btn flex justify-center items-center h-full">
-                        <button onClick={() => setFormOpen(true)} className={`bg-gradient-to-r cursor-pointer border ${showScene1 ? "border-black text-black" : "border-white text-white"}  uppercase bg-transparent  text-sm sm:text-lg  mb-48 tracking-[2px] py-[8px] px-[30px] transition duration-300 ease-in-out transform hover:scale-105`}
+                        <button onClick={() => setFormOpen(true)} className={`bg-gradient-to-r cursor-pointer border ${showScene1 ? "border-black text-black" : "border-white text-white"}  uppercase bg-transparent  text-sm sm:text-lg mb-20 md:mb-48 tracking-[2px] py-[8px] px-[30px] transition duration-300 ease-in-out transform hover:scale-105`}
                         > Enquire Now</button>
                     </div>
 
                     {/* Bottom Text */}
-                    <div className="bottom_text uppercase tracking-wider w-full sm:text-xl absolute bottom-20 sm:bottom-10 flex justify-center items-center text-center text-white"> Reserve the last luxury land parcel of Sector 107
+                    <div className="text-[16px] md:text-[20px] px-[15px] md:px-[0] bottom_text uppercase tracking-wider w-full sm:text-xl absolute bottom-20 sm:bottom-10 flex justify-center items-center text-center text-white"> Reserve the last luxury land parcel of Sector 107
                     </div>
 
                     {/* call sec  */}
-                    <div className="absolute right-10 bottom-20 sm:bottom-5 w-full text-white flex justify-end items-center gap-4 sm:gap-6">
+                    <div className="absolute right-10 bottom-7 sm:bottom-5 w-full text-white flex justify-end items-center gap-4 sm:gap-6">
                         <div className="call text-white cursor-pointer bg-transparent border-white border w-10 h-10 rounded-full flex justify-center items-center p-1">
                             <IoCall size={20} />
                         </div>
@@ -255,14 +271,14 @@ const handleArrowClick = () => {
 
             {/* Scene 2 date scene */}
             <group ref={dateGroupRef} visible={!showScene1} position={[0, -0.7, 0]}>
-                <mesh scale={5} position={[14.5, -3.2, -16.3]} rotation={[0, Math.PI / 9, 0]} renderOrder={2} >
-                    <planeGeometry args={[14, 1.5]} />
+                <mesh scale={5} position={[14.5, -3.2, -16.3]} rotation={[0, Math.PI / 12, 0]} renderOrder={2} >
+                    <planeGeometry args={[20, 1.5]} />
                     <meshStandardMaterial map={railingTexture} transparent={true} opacity={0.9} side={THREE.DoubleSide} alphaTest={0.3} depthWrite={false} depthTest={true} />
                 </mesh>
 
                 <mesh castShadow receiveShadow position={[0, -3.3, -5.5]} scale={2.5} renderOrder={99}>
-                    <planeGeometry args={[12.5, 4]} />
-                    <meshStandardMaterial transparent depthWrite={false} side={THREE.DoubleSide} map={useLoader(THREE.TextureLoader, "/textures/2.png")} />
+                    <planeGeometry args={[18, 4]} />
+                    <meshStandardMaterial transparent depthWrite={false} side={THREE.DoubleSide} map={useLoader(THREE.TextureLoader, "/textures/2.webp")} />
                 </mesh>
             </group>
         </group>

@@ -23,7 +23,7 @@ export default function WaterPool({rotation}) {
     waterDistortion: { value: 0.2, min: 0, max: 10, step: 0.05 },
   });
 
-  const geometry = useMemo(() => new THREE.PlaneGeometry(16, 5), []);
+  const geometry = useMemo(() => new THREE.PlaneGeometry(20, 5), []);
   const raycaster = useMemo(() => new THREE.Raycaster(), []);
   const mouse = useMemo(() => new THREE.Vector2(), []);
 
