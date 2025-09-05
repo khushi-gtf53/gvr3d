@@ -56,7 +56,7 @@ const Scene = () => {
 
     const imgTexture = useTexture("/textures/panaromic.jpg");
     const railingTexture = useTexture("/textures/railing2.png");
-    const img2Texture = useTexture("/textures/night.jpg");
+    const img2Texture = useTexture("/textures/scene2env2.jpg");
     const glass2 = useTexture("/textures/Glass.png");
     img2Texture.wrapS = img2Texture.wrapT = THREE.RepeatWrapping;
     img2Texture.repeat.set(2, 2);
@@ -172,8 +172,8 @@ const Scene = () => {
 
     // Break points 
 
-     const textscale = useBreakpointValue({ base: [0.7, 0.7, 0.7], sm: [0.7, 0.7, 0.7], lg: [1.2, 1.2, 1.2],      });
-     const ladyscale = useBreakpointValue({ base: [0.5, 0.5, 0.5], sm: [0.5, 0.5, 0.5], lg: [0.8, 0.8, 0.8],    });  
+     const textscale = useBreakpointValue({ base: [0.7, 0.7, 0.7], sm: [0.7, 0.7, 0.7], lg: [1.2, 1.2, 1.2],});
+     const ladyscale = useBreakpointValue({ base: [0.5, 0.5, 0.5], sm: [0.5, 0.5, 0.5], lg: [0.8, 0.8, 0.8],});  
      const ladyposition = useBreakpointValue({ base: [0, -1.05, -0.4], sm: [0, -1.05, -0.4], lg: [0, -0.8, -0.4],    
   });
 
@@ -226,7 +226,7 @@ const Scene = () => {
                     {/* Bottom Text */}
                     <div className="bottom_text uppercase tracking-wider w-full sm:text-2xl absolute bottom-20 sm:bottom-5 
                           flex justify-center items-start text-white">
-                        cloudside swims on the 40 <span className="text-[8px] sm:text-xl pe-1">TH</span> floor
+                        Reserve the last luxury land parcel of Sector 107
                     </div>
 
                     {/* Common Arrow Button */}
