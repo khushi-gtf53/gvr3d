@@ -28,7 +28,17 @@ const QueryForm = ({ onClose }) => {
         >
             <div className="w-full max-w-[80%] sm:max-w-[40%] flex flex-col mx-auto relative bg-white">
                 {/* Left side image (desktop only) */}
-                <div className="hidden sm:block  h-[30vh] relative">
+                <div className="top relative">
+                     {/* Close Button */}
+                    <button
+                        onClick={onClose}
+                        aria-label="Close form"
+                        className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full border border-white text-white text-xl cursor-pointer"
+                    >
+                        ✕
+                    </button>
+                
+                <div className="hidden sm:block  h-[20vh] relative">
                     <Image
                         src="/images/forming.jpg"
                         alt="Contact form illustration"
@@ -37,17 +47,11 @@ const QueryForm = ({ onClose }) => {
                         priority
                     />
                 </div>
+                </div>
 
                 {/* Right side form */}
-                <div className="relative bg-white h-[45vh] p-5 sm:p-14 overflow-y-auto">
-                    {/* Close Button */}
-                    <button
-                        onClick={onClose}
-                        aria-label="Close form"
-                        className="absolute top-4 right-4 text-gray-600 hover:text-black text-xl cursor-pointer"
-                    >
-                        ✕
-                    </button>
+                <div className="relative bg-white h-[45vh] p-5 sm:p-10 ">
+                   
 
                     {/* Heading */}
                     <h2 className="text-lg sm:text-xl text-center font-semibold mb-6 text-gray-700 uppercase tracking-wide">
@@ -55,8 +59,9 @@ const QueryForm = ({ onClose }) => {
                     </h2>
 
                     {/* Form */}
-                    <form className="space-y-3 tracking-wider roboto_font grid grid-cols-2 gap-5">
+                    <form className="space-y-3 tracking-wider roboto_font ">
                         {/* Mapped input fields */}
+                        <div className="grid grid-cols-2 gap-5">
                         {formFields.map((field) => (
                             <div key={field.name}>
                                 {field.type === "textarea" ? (
@@ -76,6 +81,7 @@ const QueryForm = ({ onClose }) => {
                                 )}
                             </div>
                         ))}
+                        </div>
 
                         {/* Custom Select Dropdown */}
                         <div className="relative">
@@ -109,14 +115,16 @@ const QueryForm = ({ onClose }) => {
 
 
                         {/* Submit */}
+                        <div className="w-full flex justify-center items-center">
                         <button
                             type="submit"
                             className="bg-transparent border border-black uppercase 
-                         text-black tracking-[2px] py-2 px-10 mt-5 sm:mt-6
+                         text-black tracking-[2px] py-1 px-12 mt-5 sm:mt-6
                          transition duration-300 ease-in-out transform hover:scale-105"
                         >
                             Submit
                         </button>
+                        </div>
                     </form>
                 </div>
             </div>

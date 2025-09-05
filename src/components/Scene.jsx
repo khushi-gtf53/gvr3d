@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { Html, useTexture } from "@react-three/drei";
 import WaterPool from "./Pool/WaterPool";
 import gsap from "gsap";
-import QueryForm from "./QueryForm";
+import QueryForm2 from "./QueryForm2";
 import { useBreakpointValue } from "@/utils/useBreakpointValue";
 import { IoCall } from "react-icons/io5";
 
@@ -198,7 +198,7 @@ const Scene = () => {
             </mesh>
 
             {/* Text */}
-            <mesh position={[0, 1.8, 0]} scale={textscale}>
+            <mesh position={[0, 1.9, 0]} scale={textscale}>
                 <planeGeometry args={[5, 1.5]} />
                 <meshStandardMaterial
                     transparent
@@ -215,7 +215,7 @@ const Scene = () => {
                         <button
                             onClick={() => setFormOpen(true)}
                             className="bg-gradient-to-r cursor-pointer border border-white uppercase  
-                       bg-transparent text-white text-sm sm:text-xl  mb-48 tracking-[2px] py-[8px] px-[30px] 
+                       bg-transparent text-white text-sm sm:text-lg  mb-48 tracking-[2px] py-[8px] px-[30px] 
                        transition duration-300 ease-in-out transform hover:scale-105"
                         >
                             Enquire Now
@@ -225,7 +225,7 @@ const Scene = () => {
 
 
                     {/* Bottom Text */}
-                    <div className="bottom_text uppercase tracking-wider w-full sm:text-2xl absolute bottom-20 sm:bottom-5 
+                    <div className="bottom_text uppercase tracking-wider w-full sm:text-xl absolute bottom-20 sm:bottom-10 
                           flex justify-center items-start text-white">
                         Reserve the last luxury land parcel of Sector 107
                     </div>
@@ -250,11 +250,11 @@ const Scene = () => {
                         <img
                             src="/images/arrows.png"
                             alt="arrow"
-                            className="w-16 sm:w-20 transition-transform duration-300 ease-in-out group-hover:translate-x-[22px]"
+                            className="w-16 sm:w-20 transition-transform duration-300 ease-in-out group-hover:translate-x-[25px]"
                         />
                     </div>
 
-                    {formOpen && <QueryForm onClose={() => setFormOpen(false)} />}
+                    {formOpen && <QueryForm2 onClose={() => setFormOpen(false)} />}
                 </div>
             </Html>
 
@@ -297,7 +297,7 @@ const Scene = () => {
             </group>
 
             {/* Scene 2 date scene */}
-            <group ref={dateGroupRef} visible={!showScene1}>
+            <group ref={dateGroupRef} visible={!showScene1} position={[0, -0.5, 0]}>
                 <mesh
                     scale={5}
                     position={[14.5, -3.2, -16.3]}
