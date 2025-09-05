@@ -1,6 +1,5 @@
 "use client";
 import { useLoader, useFrame } from "@react-three/fiber";
-import { RGBELoader } from "three-stdlib";
 import * as THREE from "three";
 import { useEffect, useRef, useState } from "react";
 import { Html, useTexture } from "@react-three/drei";
@@ -10,7 +9,7 @@ import QueryForm2 from "./QueryForm2";
 import { useBreakpointValue } from "@/utils/useBreakpointValue";
 import { IoCall } from "react-icons/io5";
 
-const Scene = () => {
+const Scene = ({ showScene1, setShowScene1 }) => {
     const cityTexture = useTexture("/textures/tile4.jpg");
     cityTexture.colorSpace = THREE.SRGBColorSpace;
 
@@ -21,7 +20,7 @@ const Scene = () => {
     const poolGroupRef = useRef();
     const dateGroupRef = useRef();
     const [formOpen, setFormOpen] = useState(false);
-    const [showScene1, setShowScene1] = useState(true);
+    // const [showScene1, setShowScene1] = useState(true);
 
     useEffect(() => {
         let timeoutId;
@@ -173,10 +172,18 @@ const Scene = () => {
 
     // Break points 
 
-     const textscale = useBreakpointValue({ base: [0.7, 0.7, 0.7], sm: [0.7, 0.7, 0.7], lg: [1.2, 1.2, 1.2],});
-     const ladyscale = useBreakpointValue({ base: [0.5, 0.5, 0.5], sm: [0.5, 0.5, 0.5], lg: [0.8, 0.8, 0.8],});  
-     const ladyposition = useBreakpointValue({ base: [0, -1.05, -0.4], sm: [0, -1.05, -0.4], lg: [0, -0.8, -0.4],    
-  });
+    const textscale = useBreakpointValue({ base: [0.7, 0.7, 0.7], sm: [0.7, 0.7, 0.7], lg: [1.2, 1.2, 1.2], });
+    const ladyscale = useBreakpointValue({ base: [0.5, 0.5, 0.5], sm: [0.5, 0.5, 0.5], lg: [0.8, 0.8, 0.8], });
+    const ladyposition = useBreakpointValue({
+        base: [0, -1.05, -0.4], sm: [0, -1.05, -0.4], lg: [0, -0.8, -0.4],
+    });
+
+    const textTexturePath = showScene1
+  ? "/textures/text.png"
+  : "/textures/text-white.png";
+
+// load texture
+const textTexture = useLoader(THREE.TextureLoader, textTexturePath);
 
     return (
         <group ref={sceneRef}>
@@ -203,26 +210,18 @@ const Scene = () => {
                 <meshStandardMaterial
                     transparent
                     depthWrite={false}
-                    map={useLoader(THREE.TextureLoader, "/textures/text-white.png")}
+                    map={textTexture}
                 />
             </mesh>
-
 
             <Html fullscreen>
                 <div className="w-full h-full relative z-[99999] pointer-events-auto">
                     {/* CTA Button */}
                     <div className="cta_btn flex justify-center items-center h-full">
-                        <button
-                            onClick={() => setFormOpen(true)}
-                            className="bg-gradient-to-r cursor-pointer border border-white uppercase  
-                       bg-transparent text-white text-sm sm:text-lg  mb-48 tracking-[2px] py-[8px] px-[30px] 
-                       transition duration-300 ease-in-out transform hover:scale-105"
+                        <button onClick={() => setFormOpen(true)} className="bg-gradient-to-r cursor-pointer border border-white uppercase bg-transparent text-white text-sm sm:text-lg  mb-48 tracking-[2px] py-[8px] px-[30px] transition duration-300 ease-in-out transform hover:scale-105"
                         >
-                            Enquire Now
-                        </button>
+                            Enquire Now</button>
                     </div>
-
-
 
                     {/* Bottom Text */}
                     <div className="bottom_text uppercase tracking-wider w-full sm:text-xl absolute bottom-20 sm:bottom-10 
@@ -231,13 +230,11 @@ const Scene = () => {
                     </div>
 
                     {/* call sec  */}
-                    <div className="absolute right-10 bottom-20 sm:bottom-5 w-full
-                           text-white flex justify-end items-center gap-4 sm:gap-6">
-                                            <div className="call text-white cursor-pointer bg-transparent border-white border w-10 h-10 rounded-full flex justify-center items-center p-1">
-                                                <IoCall size={20} />
-                                            </div>
-                                            
-                                        </div>
+                    <div className="absolute right-10 bottom-20 sm:bottom-5 w-full text-white flex justify-end items-center gap-4 sm:gap-6">
+                        <div className="call text-white cursor-pointer bg-transparent border-white border w-10 h-10 rounded-full flex justify-center items-center p-1">
+                            <IoCall size={20} />
+                        </div>
+                    </div>
 
                     {/* Common Arrow Button */}
                     <div
@@ -302,18 +299,18 @@ const Scene = () => {
                     scale={5}
                     position={[14.5, -3.2, -16.3]}
                     rotation={[0, Math.PI / 9, 0]}
-                    renderOrder={2} 
+                    renderOrder={2}
                 >
                     <planeGeometry args={[14, 1.5]} />
                     <meshStandardMaterial
                         map={railingTexture}
                         transparent={true}
-                        opacity={0.9}             
+                        opacity={0.9}
                         side={THREE.DoubleSide}
-                        alphaTest={0.3}           
-                        depthWrite={false}        
-                        depthTest={true}     
-                        //  blending={THREE.CustomBlending}
+                        alphaTest={0.3}
+                        depthWrite={false}
+                        depthTest={true}
+                    //  blending={THREE.CustomBlending}
 
                     />
                 </mesh>
