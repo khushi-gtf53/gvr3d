@@ -14,6 +14,7 @@ const Scene2 = ({ showScene1, setShowScene1 }) => {
     // cityTexture.colorSpace = THREE.SRGBColorSpace;
     function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false);
+  
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -27,8 +28,10 @@ const Scene2 = ({ showScene1, setShowScene1 }) => {
 
 // Usage
 const isMobile = useIsMobile();
+const [line, setLine] = useState(false);
 const textPosition = isMobile ? [0, 1.3, 0] : [0, 2.1, 0];
-const secondScene = isMobile ? [7, 2] : [12.5, 3.6];
+const secondScene = isMobile ? [9, 3] : [12.5, 3.6];
+const secondRainling = isMobile ? [14.5, -5, -16.3] : [14.5, -3.8, -16.3];
 
     const [speed, setSpeed] = useState(0.02);
     const skyRef = useRef();
@@ -101,6 +104,7 @@ const handleArrowClick = () => {
       onComplete: () => {
         skyRef.current.visible = false;
         scene2BgRef.current.visible = true;
+        setLine(true);
 
         // Fade in next BG
         gsap.fromTo(
@@ -151,6 +155,7 @@ const handleArrowClick = () => {
       onComplete: () => {
         scene2BgRef.current.visible = false;
         skyRef.current.visible = true;
+        setLine(false)
 
         gsap.fromTo(
           skyRef.current.material,
@@ -224,7 +229,9 @@ const handleArrowClick = () => {
                     </div>
 
                     {/* Bottom Text */}
-                    <div className="text-[16px] md:text-[20px] px-[15px] md:px-[0] bottom_text uppercase tracking-wider w-full sm:text-xl absolute bottom-20 sm:bottom-10 flex justify-center items-center text-center text-white"> Cloudside swims on the 40th floor
+                    <div className="text-[16px] md:text-[20px] px-[15px] md:px-[0] bottom_text uppercase tracking-wider w-full sm:text-xl absolute bottom-20 sm:bottom-10 flex justify-center items-center text-center text-white">
+                      {line ? "Dinner Dates on the 40th floor" : "Cloudside swims on the 40th floor"}
+                       
                     </div>
 
                     {/* call sec  */}
@@ -272,7 +279,7 @@ const handleArrowClick = () => {
 
             {/* Scene 2 date scene */}
             <group ref={dateGroupRef} visible={!showScene1} position={[0, -0.7, 0]}>
-                <mesh scale={5} position={[14.5, -3.8, -16.3]} rotation={[0, Math.PI / 9, 0]} renderOrder={2} >
+                <mesh scale={5} position={secondRainling} rotation={[0, Math.PI / 9, 0]} renderOrder={2} >
                     <planeGeometry args={[14, 1.5]} />
                     <meshStandardMaterial map={railingTexture} transparent={true} opacity={0.9} side={THREE.DoubleSide} alphaTest={0.3} depthWrite={false} depthTest={true} />
                 </mesh>
