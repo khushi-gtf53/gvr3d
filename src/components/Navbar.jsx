@@ -9,15 +9,15 @@ const Navbar = ({ showScene1 }) => {
           <img src="/images/logo.webp" alt="" className="w-[70%] sm:w-[80%]" />
         </div>
 
-        <div className="rera_sec max-w-[32%] sm:max-w-auto">
-          <div className="flex  items-top items-center  gap-[1px] sm:gap-1 md:gap-2">
+        <div className="rera_sec">
+          <div className="flex items-center justify-end gap-[1px] sm:gap-1 md:gap-2">
             <div
               className={`rera_details text-[12px] md:text-[18px] font-[100]  ${
                 showScene1 ? "text-black" : "text-white"
-              } flex sm:items-center tracking-wider  transition-colors duration-500`}
+              } flex gap-1 sm:gap-2 items-center tracking-wider  transition-colors duration-500`}
             >
-            <FaLocationDot className="mt-[5px] sm:mb-2 "/>
-            <div className="text-[11px] md:text-[16px] ps-[10px] md:px-[10px] bottom_text uppercase tracking-wider w-full sm:text-xl  flex flex-col justify-start items-center gap-2">
+            <FaLocationDot className="mt-[5px] mb-2 "/>
+            <div className="text-[10px] md:text-[16px] text-center  bottom_text uppercase">
             sector 107 noida
                     </div>
               {/* <p className="text-end md:text-start">RERA NUMBER: UPRERAPRJ510056/09/2025</p>
@@ -26,9 +26,9 @@ const Navbar = ({ showScene1 }) => {
               <p className="text-end  md:text-start">BANK & BRANCH ADDRESS: PNB, SECTOR 104, NOIDA, UP</p>
               <p className="text-end  md:text-start">LAUNCH DATE OF PROJECT: 11-06-2025</p> */}
             </div>
-            <div className="qr block">
+            {/* <div className="qr block">
               <img src="/images/qrcode.png" alt="qr" className="w-10 h-auto " />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

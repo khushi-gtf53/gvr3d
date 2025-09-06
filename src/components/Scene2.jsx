@@ -236,7 +236,10 @@ const handleArrowClick = () => {
                     </div>
 
                     {/* call sec  */}
-                    <div className="absolute right-0 md:right-10 bottom-7 sm:bottom-5 w-full text-white flex justify-center md:justify-end items-center gap-4 sm:gap-6">
+                    <div className="absolute left-0 md:left-10 right-0 md:right-10 bottom-7 sm:bottom-5  text-white flex justify-center md:justify-between items-center gap-5 md:gap-0 ">
+                      <div className="qr block">
+              <img src="/images/qrcode.png" alt="qr" className="w-10 h-auto " />
+            </div>
                         <div className="call text-white cursor-pointer bg-transparent border-white border w-10 h-10 rounded-full flex justify-center items-center p-1">
                             <IoCall size={20} />
                         </div>
