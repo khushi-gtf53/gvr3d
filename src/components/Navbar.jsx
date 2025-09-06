@@ -16,7 +16,7 @@ const Navbar = ({ showScene1 }) => {
   ${showScene1 ? "text-black" : "text-white"}
   flex gap-2 items-center tracking-wider transition-colors duration-500`}
 >
-  <FaLocationDot className="sm:mt-[5px] sm:mb-2" />
+  <FaLocationDot className="sm:mt-[5px] mb-1 sm:mb-2" />
   <div className="text-[12px] md:text-[16px] bottom_text uppercase whitespace-nowrap flex-shrink-0">
     sector 107 noida
   </div>
