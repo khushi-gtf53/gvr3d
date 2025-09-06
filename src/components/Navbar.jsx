@@ -9,7 +9,7 @@ const Navbar = ({ showScene1 }) => {
           <img src="/images/logo.webp" alt="" className="w-[70%] sm:w-[80%]" />
         </div>
 
-        <div className="rera_sec">
+        <div className="rera_sec flex justify-end items-center">
           {/* <div className="flex items-center justify-between gap-[1px] sm:gap-1 md:gap-2"> */}
             <div
               className={`rera_details text-[12px] md:text-[18px] font-[100]  ${
