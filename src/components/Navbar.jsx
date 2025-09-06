@@ -1,4 +1,5 @@
 import React from "react";
+import { FaLocationDot } from "react-icons/fa6";
 
 const Navbar = ({ showScene1 }) => {
   return (
@@ -9,17 +10,19 @@ const Navbar = ({ showScene1 }) => {
         </div>
 
         <div className="rera_sec">
-          <div className="flex  items-top md:items-start gap-2">
+          <div className="flex  items-top md:items-center  gap-[1px] sm:gap-1 md:gap-2">
             <div
-              className={`rera_details text-[4px] md:text-[7px] font-[100]  ${
+              className={`rera_details text-[12px] md:text-[18px] font-[100]  ${
                 showScene1 ? "text-black" : "text-white"
-              } flex flex-col sm:items-end tracking-wider roboto_font transition-colors duration-500`}
+              } flex gap- sm:items-center tracking-wider roboto_font transition-colors duration-500`}
             >
-              <p className="text-end md:text-start">RERA NUMBER: UPRERAPRJ510056/09/2025</p>
+            <FaLocationDot className="mt-[5px] mr-[5px] sm:mb-2 "/>
+            sector 107 noida
+              {/* <p className="text-end md:text-start">RERA NUMBER: UPRERAPRJ510056/09/2025</p>
               <p className="text-end  md:text-start">HTTPS://WWW.UP-RERA.IN</p>
               <p className="text-end  md:text-start">ACCOUNT NUMBER: 7865002900000018 | IFSC: PUNB0786500</p>
               <p className="text-end  md:text-start">BANK & BRANCH ADDRESS: PNB, SECTOR 104, NOIDA, UP</p>
-              <p className="text-end  md:text-start">LAUNCH DATE OF PROJECT: 11-06-2025</p>
+              <p className="text-end  md:text-start">LAUNCH DATE OF PROJECT: 11-06-2025</p> */}
             </div>
             <div className="qr block">
               <img src="/images/qrcode.png" alt="qr" className="w-14 h-auto md:h-14" />
