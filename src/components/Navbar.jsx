@@ -14,10 +14,12 @@ const Navbar = ({ showScene1 }) => {
             <div
               className={`rera_details text-[12px] md:text-[18px] font-[100]  ${
                 showScene1 ? "text-black" : "text-white"
-              } flex gap- sm:items-center tracking-wider roboto_font transition-colors duration-500`}
+              } flex gap- sm:items-center tracking-wider  transition-colors duration-500`}
             >
             <FaLocationDot className="mt-[5px] mr-[5px] sm:mb-2 "/>
+            <div className="text-[11px] md:text-[16px] md:px-[0] bottom_text uppercase tracking-wider w-full sm:text-xl  flex flex-col justify-center items-center text-center">
             sector 107 noida
+                    </div>
               {/* <p className="text-end md:text-start">RERA NUMBER: UPRERAPRJ510056/09/2025</p>
               <p className="text-end  md:text-start">HTTPS://WWW.UP-RERA.IN</p>
               <p className="text-end  md:text-start">ACCOUNT NUMBER: 7865002900000018 | IFSC: PUNB0786500</p>
@@ -25,7 +27,7 @@ const Navbar = ({ showScene1 }) => {
               <p className="text-end  md:text-start">LAUNCH DATE OF PROJECT: 11-06-2025</p> */}
             </div>
             <div className="qr block">
-              <img src="/images/qrcode.png" alt="qr" className="w-14 h-auto md:h-14" />
+              <img src="/images/qrcode.png" alt="qr" className="w-10 h-auto " />
             </div>
           </div>
         </div>
