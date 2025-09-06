@@ -30,36 +30,17 @@ const QueryForm = ({ onClose }) => {
                 {/* Left side image (desktop only) */}
                 <div className="top relative">
                      {/* Close Button */}
-                    <button
-                        onClick={onClose}
-                        aria-label="Close form"
-                        className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full border border-white text-white text-xl cursor-pointer"
-                    >
-                        ✕
+                    <button onClick={onClose} aria-label="Close form" className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full border border-white text-white text-xl cursor-pointer" > ✕
                     </button>
                 
-                <div className="block h-[100px]  md:h-[20vh] relative">
-                    <Image
-                        src="/images/forming.webp"
-                        alt="Contact form illustration"
-                        fill
-                        className="object-cover border-t-2 border-[#26382b]"
-                        priority
-                    />
+                <div className= "block h-[100px]  md:h-[20vh] relative">
+                    <Image src="/images/forming.webp" alt="Contact form illustration" fill className="object-cover border-t-2 border-[#26382b]" priority />
                 </div>
                 </div>
 
                 {/* Right side form */}
                 <div className="relative bg-white h-auto p-5 sm:p-10 ">
-                    {/* <div className="relative w-full">
-                    <button
-                        onClick={onClose}
-                        aria-label="Close form"
-                        className="relative top-1  block sm:hidden right-[4px] z-20 w-8 h-8 rounded-full border border-black text-black text-xl cursor-pointer"
-                    >
-                        ✕
-                    </button>
-                    </div> */}
+                  
 
                     {/* Heading */}
                     <h2 className="text-lg sm:text-xl text-center font-semibold mb-3 md:mb-6 text-gray-700 uppercase tracking-wide">

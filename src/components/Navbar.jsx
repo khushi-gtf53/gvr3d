@@ -10,7 +10,6 @@ const Navbar = ({ showScene1 }) => {
         </div>
 
         <div className="rera_sec flex justify-end items-center">
-          {/* <div className="flex items-center justify-between gap-[1px] sm:gap-1 md:gap-2"> */}
           <div
             className={`rera_details text-[12px] md:text-[18px] font-[100]  
   ${showScene1 ? "text-black" : "text-white"}
@@ -20,13 +19,8 @@ const Navbar = ({ showScene1 }) => {
             <div className="text-[12px] md:text-[16px] bottom_text uppercase whitespace-nowrap flex-shrink-0">
               sector 107 noida
             </div>
-          </div>
-
-          {/* <div className="qr block">
-              <img src="/images/qrcode.png" alt="qr" className="w-10 h-auto " />
-            </div> */}
+          </div>          
         </div>
-        {/* </div> */}
       </div>
     </header>
   );
